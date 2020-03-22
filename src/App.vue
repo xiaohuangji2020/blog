@@ -1,36 +1,30 @@
 <template>
     <div id="app">
-        <img src="./assets/logo.png" />
-        <div>
-            <p>
-                If Element is successfully added to this project, you'll see an
-                <code v-text="'<el-button>'"></code>
-                below
-            </p>
-            <el-button>el-button</el-button>
-        </div>
-        <HelloWorld msg="Welcome to Your Vue.js App" />
+        <my-nav></my-nav>
+        <router-view></router-view>
     </div>
 </template>
 
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import myNav from '@/views/common/nav.vue';
 
-export default {
-    name: "app",
+@Component({
     components: {
-        HelloWorld
+        myNav
     }
-};
+})
+export default class App extends Vue {}
 </script>
 
 <style>
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    background: url(~@/assets/images/bg-1.png) repeat;
+    color: #2c3e50;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
 }
 </style>
