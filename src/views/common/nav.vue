@@ -18,7 +18,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class ModalEdit extends Vue {
-    private navList: string[] = ['首页', '技术', '关于'];
+    private navList: string[] = ['首页', '技术', '简历', '关于', '其他板块'];
 }
 </script>
 

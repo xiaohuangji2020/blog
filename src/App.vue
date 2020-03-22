@@ -17,7 +17,7 @@ import myNav from '@/views/common/nav.vue';
 export default class App extends Vue {}
 </script>
 
-<style>
+<style lang="less">
 #app {
     min-height: 100vh;
     background: url(~@/assets/images/bg-1.png) repeat;
