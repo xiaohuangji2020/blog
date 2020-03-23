@@ -4,10 +4,7 @@
             v-for="(item, index) of navList"
             :key="index"
             class="nav-li"
-            :style="{
-                'background-color':
-                    'hsla(' + (180 + index * 10) + ', 100%, 50%, 100%)'
-            }"
+            :style="{ 'background-color': 'hsla(' + (180 + index * 10) + ', 100%, 50%, 100%)' }"
         >
             {{ item }}
         </div>
@@ -18,7 +15,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class ModalEdit extends Vue {
-    private navList: string[] = ['首页', '技术', '简历', '关于', '其他板块'];
+    private navList: string[] = ['首页', '技术', '简历', '关于', '灵感', '其他板块'];
 }
 </script>
 
@@ -28,6 +25,7 @@ export default class ModalEdit extends Vue {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 99;
 
     .nav-li {
         height: 40px;
