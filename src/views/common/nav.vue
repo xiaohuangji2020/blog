@@ -1,13 +1,13 @@
 <template>
     <ul id="nav">
-        <div
+        <li
             v-for="(item, index) of navList"
             :key="index"
+            :style="{ 'background-color': 'hsla(' + (180 + index * 20) + ', 100%, 50%, 100%)' }"
             class="nav-li"
-            :style="{ 'background-color': 'hsla(' + (180 + index * 10) + ', 100%, 50%, 100%)' }"
         >
-            {{ item }}
-        </div>
+            <router-link :to="item.path">{{ item.name }}</router-link>
+        </li>
     </ul>
 </template>
 
@@ -15,7 +15,32 @@
 import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class ModalEdit extends Vue {
-    private navList: string[] = ['首页', '技术', '简历', '关于', '灵感', '其他板块'];
+    private navList = [
+        {
+            path: '/',
+            name: '首页'
+        },
+        {
+            path: '/t',
+            name: '技术'
+        },
+        {
+            path: '/cv',
+            name: '简历'
+        },
+        {
+            path: '/about',
+            name: '关于'
+        },
+        {
+            path: '/inspiration',
+            name: '灵感'
+        },
+        {
+            path: '/other',
+            name: '其他'
+        }
+    ];
 }
 </script>
 
@@ -42,6 +67,10 @@ export default class ModalEdit extends Vue {
 
         &:hover {
             transform: translateX(0);
+        }
+
+        a {
+            display: block;
         }
     }
 }
