@@ -1,0 +1,6 @@
+@charset "utf-8";
+@keyframes my-rotate{
+    to {
+      transform: rotate(360deg);
+    }
+}
