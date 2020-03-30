@@ -1,6 +1,6 @@
 <template>
     <div class="technology-wrap">
-        <transition-group name="scale">
+        <transition-group enter-active-class="bounce-in" leave-active-class="bounce-in">
             <router-link
                 v-for="item of category"
                 :to="item[0]"
@@ -78,15 +78,15 @@ export default class ModalEdit extends Vue {
     }
     &.c-1::after {
         border-left-color: orangered;
-        animation: my-rotate 1.4s ease infinite;
+        animation: my-rotate-reverse 1.4s ease infinite;
     }
     &.c-2::after {
         border-left-color: sandybrown;
-        animation: my-rotate 1.6s linear infinite;
+        animation: my-rotate 0.6s linear infinite;
     }
     &.c-3::after {
-        border-left-color: goldenrod;
-        animation: my-rotate 1.2s ease-in-out 0.2s infinite;
+        border-left-color: aquamarine;
+        animation: my-rotate-reverse 1.2s ease-in-out 0.2s infinite;
     }
     &.c-4::after {
         border-left-color: pink;
@@ -94,15 +94,7 @@ export default class ModalEdit extends Vue {
     }
     &.c-5::after {
         border-left-color: paleturquoise;
-        animation: my-rotate 1.1s ease-out 0.1s infinite;
+        animation: my-rotate-reverse 1.1s ease-out 0.1s infinite;
     }
-}
-.scale-enter-active,
-.scale-leave-active {
-    transition: transform 1s;
-}
-.scale-enter,
-.scale-leave-to {
-    transform: scale(0);
 }
 </style>

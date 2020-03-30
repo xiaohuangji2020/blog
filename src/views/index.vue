@@ -1,5 +1,10 @@
 <template>
     <div class="index">
+        <div class="bg">
+            <ul v-for="rIndex of rowCount" :key="rIndex">
+                <li v-for="cIndex of colCount" :key="cIndex" :class="`b-${rIndex}-${cIndex}`" class="bg-block"></li>
+            </ul>
+        </div>
         <h1>Welcome! <span>and emmm~~~~</span></h1>
         <my-nav></my-nav>
         <main class="main">
@@ -8,14 +13,14 @@
                 <li>不是文人、也不是墨客的<span class="stress">理科生</span></li>
                 <li>脑回路或者说<span class="stress">精神</span>有点不正常</li>
                 <li>自定义职介为：<span class="stress">Berserker</span></li>
-                <li>还真的想做一个<span class="stress">英灵</span>，可惜事迹太少</li>
+                <li>我的<span class="stress">小狼狗</span>在哪里</li>
             </ul>
             <ul class="intro-r">
                 <li>就是想<span class="stress">搞</span>个博客玩玩</li>
                 <li>是<span class="stress">废柴</span>哦</li>
                 <li>吃我一掌，<span class="stress">产品</span></li>
-                <li>对产品<span class="stress">宝具</span> · 需求什么的都去s吧</li>
-                <li>效果：<span class="stress">砍需求</span>，rm -rf&lt;overcharge时效果提升&gt;</li>
+                <li>对产品<span class="stress">宝具</span>砍需求，rm -rf&lt;overcharge时效果提升&gt;</li>
+                <li>在哪里，在哪里</li>
             </ul>
         </main>
         <div class="separator"></div>
@@ -26,6 +31,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import myNav from '@/views/common/nav.vue';
+import { addClass, removeClass } from '@/util/jq';
 
 @Component({
     components: {
@@ -34,13 +40,39 @@ import myNav from '@/views/common/nav.vue';
 })
 export default class ModalEdit extends Vue {
     private navList: string[] = ['首页', '技术', '简历', '关于'];
+    private rowCount = 0;
+    private colCount = 0;
+    private randomAction = false;
+    private mounted() {
+        this.colCount = Math.ceil(document.body.clientWidth / 55);
+        this.rowCount = Math.ceil(document.body.clientHeight / 55);
+        this.$nextTick(() => {
+            document.querySelectorAll('.bg-block').forEach(el => {
+                el.addEventListener('animationend', event => {
+                    removeClass(event.target, 'action');
+                });
+            });
+        });
+        this.actionBg();
+    }
+
+    private actionBg() {
+        setTimeout(() => {
+            const rIndex = Math.round(Math.random() * this.rowCount);
+            const cIndex = Math.round(Math.random() * this.colCount);
+            addClass(document.querySelector(`.b-${rIndex}-${cIndex}`), 'action');
+            this.actionBg();
+        }, 3000);
+    }
 }
 </script>
 
 <style lang="less" scoped>
+@import url('~@/assets/css/animation.css');
+
 .index {
     min-height: 100vh;
-    background: url(~@/assets/images/bg-1.png) repeat;
+    // background: url(~@/assets/images/bg-1.png) repeat;
 }
 h1 {
     position: absolute;
@@ -55,6 +87,7 @@ h1 {
 }
 .main {
     display: flex;
+    position: relative;
     padding-top: 250px;
     line-height: 34px;
 
@@ -91,5 +124,23 @@ h1 {
     right: 5px;
     bottom: 5px;
     color: white;
+}
+.bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    ul {
+        display: flex;
+    }
+    .bg-block {
+        width: 55px;
+        height: 55px;
+        background: url(~@/assets/images/bg-1.png) repeat;
+    }
+    .action {
+        animation: my-rotate 1s;
+    }
 }
 </style>
