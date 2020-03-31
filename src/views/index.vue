@@ -13,14 +13,14 @@
                 <li>不是文人、也不是墨客的<span class="stress">理科生</span></li>
                 <li>脑回路或者说<span class="stress">精神</span>有点不正常</li>
                 <li>自定义职介为：<span class="stress">Berserker</span></li>
-                <li>我的<span class="stress">小狼狗</span>在哪里</li>
+                <li>看见我的<span class="stress">小狼狗</span>了吗</li>
             </ul>
             <ul class="intro-r">
                 <li>就是想<span class="stress">搞</span>个博客玩玩</li>
                 <li>是<span class="stress">废柴</span>哦</li>
                 <li>吃我一掌，<span class="stress">产品</span></li>
                 <li>对产品<span class="stress">宝具</span>砍需求，rm -rf&lt;overcharge时效果提升&gt;</li>
-                <li>在哪里，在哪里</li>
+                <li>快出来，叫你呢</li>
             </ul>
         </main>
         <div class="separator"></div>
@@ -31,7 +31,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import myNav from '@/views/common/nav.vue';
-import { addClass, removeClass } from '@/util/jq';
+import $ from 'jquery';
 
 @Component({
     components: {
@@ -47,9 +47,9 @@ export default class ModalEdit extends Vue {
         this.colCount = Math.ceil(document.body.clientWidth / 55);
         this.rowCount = Math.ceil(document.body.clientHeight / 55);
         this.$nextTick(() => {
-            document.querySelectorAll('.bg-block').forEach(el => {
-                el.addEventListener('animationend', event => {
-                    removeClass(event.target, 'action');
+            $('.bg-block').each((index: number, el: Element) => {
+                $(el).on('animationend', (event: Event) => {
+                    $(event.target).removeClass('action');
                 });
             });
         });
@@ -60,7 +60,7 @@ export default class ModalEdit extends Vue {
         setTimeout(() => {
             const rIndex = Math.round(Math.random() * this.rowCount);
             const cIndex = Math.round(Math.random() * this.colCount);
-            addClass(document.querySelector(`.b-${rIndex}-${cIndex}`), 'action');
+            $(`.b-${rIndex}-${cIndex}`).addClass('action');
             this.actionBg();
         }, 3000);
     }
@@ -72,7 +72,6 @@ export default class ModalEdit extends Vue {
 
 .index {
     min-height: 100vh;
-    // background: url(~@/assets/images/bg-1.png) repeat;
 }
 h1 {
     position: absolute;
@@ -135,12 +134,15 @@ h1 {
         display: flex;
     }
     .bg-block {
+        position: relative;
         width: 55px;
         height: 55px;
         background: url(~@/assets/images/bg-1.png) repeat;
     }
     .action {
-        animation: my-rotate 1s;
+        transform-origin: left bottom;
+        animation: my-index-bg-action 1s ease-in;
+        z-index: 9;
     }
 }
 </style>
