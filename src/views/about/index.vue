@@ -1,9 +1,10 @@
 <template>
     <div>
         <ul>
-            <li>1. 左侧菜单旁边新增一张图片， “菜单在”再加一个箭头</li>
-            <li>2. 无名之辈的歌词放在右侧，p图</li>
-            <li>3. 中间的秤子，添加启动按钮，“秤子启动”</li>
+            <li>1. 前端技术：Vue + TS</li>
+            <li>2. 后端技术：暂无后端</li>
+            <li>3. Coder: Sun</li>
+            <li>3. Design: Sun</li>
         </ul>
     </div>
 </template>
