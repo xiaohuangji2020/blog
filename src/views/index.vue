@@ -25,6 +25,7 @@
     </main>
     <div class="separator"></div>
     <div class="author">powered by 圆企鹅·Alter</div>
+    <div class="record">辽ICP备2020012261号-1</div>
   </div>
 </template>
 
@@ -121,6 +122,13 @@ h1 {
   right: 5px;
   bottom: 5px;
   color: white;
+}
+.record {
+  position: absolute;
+  bottom: 5px;
+  left: 50px;
+  color: white;
+  font-size: 12px;
 }
 .bg {
   position: fixed;
