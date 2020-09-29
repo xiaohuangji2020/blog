@@ -9,7 +9,7 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = 'test'
+        args[0].title = '机关算尽'
         return args
       })
   }
