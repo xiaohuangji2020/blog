@@ -25,7 +25,13 @@
     </main>
     <div class="separator"></div>
     <div class="author">powered by 圆企鹅·Alter</div>
-    <div class="record">辽ICP备2020012261号-1</div>
+    <div class="record">
+      <a target="_blank" href="https://www.beian.miit.gov.cn/">辽ICP备2020012261号-1</a>
+      <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21011402000290">
+        <img src="/img/icons/beian.png" />
+        <p>辽公网安备 21011402000290号</p>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -124,11 +130,16 @@ h1 {
   color: white;
 }
 .record {
+  display: flex;
   position: absolute;
   bottom: 5px;
   left: 50px;
   color: white;
   font-size: 12px;
+  a {
+    display: flex;
+    margin-right: 10px;
+  }
 }
 .bg {
   position: fixed;
