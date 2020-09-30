@@ -1,11 +1,11 @@
 <template>
   <div class="index">
-    <div class="bg">
+    <!-- <div class="bg">
       <ul v-for="rIndex of rowCount" :key="rIndex">
         <li v-for="cIndex of colCount" :key="cIndex" :class="`b-${rIndex}-${cIndex}`" class="bg-block"></li>
       </ul>
-    </div>
-    <h1>Welcome! <span>and emmm~~~~</span></h1>
+    </div> -->
+    <!-- <h1>Welcome! <span>and emmm~~~~</span></h1> -->
     <my-nav></my-nav>
     <main class="main">
       <ul class="intro-l">
@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import myNav from '@/views/common/nav.vue';
+import myNav from '@/views/common/Nav.vue';
 import $ from 'jquery';
 
 @Component({
@@ -76,7 +76,9 @@ export default class ModalEdit extends Vue {
 
 <style lang="less" scoped>
 .index {
+  width: 950px;
   min-height: 100vh;
+  margin: 0 auto;
 }
 h1 {
   position: absolute;

@@ -1,14 +1,22 @@
 <template>
-  <ul id="nav">
-    <li
-      v-for="(item, index) of navList"
-      :key="index"
-      :style="{ 'background-color': 'hsla(' + (180 + index * 20) + ', 100%, 50%, 100%)' }"
-      class="nav-li"
-    >
-      <router-link :to="item.path">{{ item.name }}</router-link>
-    </li>
-  </ul>
+  <div class="nav">
+    <header class="header">
+      <div class="logo">logo</div>
+      <div class="header-icon">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon_qq"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon_qq"></use>
+        </svg>
+      </div>
+    </header>
+    <ul class="menu">
+      <li v-for="(item, index) of navList" :key="index" class="menu-item">
+        <router-link :to="item.name" class="link">{{ item.title }}</router-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,59 +26,65 @@ export default class Nav extends Vue {
   private navList = [
     {
       path: '/',
-      name: '首页'
+      name: 'index',
+      title: 'HOME'
     },
     {
       path: '/t',
-      name: '技术'
-    },
-    {
-      path: '/cv',
-      name: '简历'
+      name: 'technology',
+      title: 'Technology'
     },
     {
       path: '/about',
-      name: '关于'
-    },
-    {
-      path: '/inspiration',
-      name: '灵感'
+      name: 'about',
+      title: 'About Me'
     },
     {
       path: '/other',
-      name: '其他'
+      name: 'other',
+      title: 'Other'
     }
   ];
 }
 </script>
 
 <style lang="less" scoped>
-#nav {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 99;
-
-  .nav-li {
-    height: 40px;
-    width: 200px;
-    margin-bottom: 50px;
-    border: 2px solid white;
-    line-height: 40px;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 0 20px 20px 0;
-    text-align: center;
-    transform: translateX(-180px);
-    transition: transform 0.3s ease-out;
-
-    &:hover {
-      transform: translateX(0);
+.nav {
+  height: 200px;
+  .header {
+    display: flex;
+    height: 64px;
+    line-height: 64px;
+    margin-bottom: 20px;
+    padding-top: 60px;
+    .logo {
+      width: 100px;
+      padding-right: 30px;
+      text-align: center;
+      font-size: 32px;
     }
-
-    a {
-      display: block;
+    .header-icon {
+      display: flex;
+      align-items: center;
+      .icon {
+        margin-right: 10px;
+        font-size: 22px;
+      }
+    }
+  }
+  .menu {
+    display: flex;
+    width: 920px;
+    height: 44px;
+    line-height: 44px;
+    margin: 0 auto;
+    padding: 0 15px;
+    .menu-item {
+      padding: 0 5px;
+      .link {
+        display: block;
+        padding: 0 10px;
+      }
     }
   }
 }
