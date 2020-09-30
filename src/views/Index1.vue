@@ -60,7 +60,7 @@ export default class ModalEdit extends Vue {
         });
       });
     });
-    this.actionBg();
+    // this.actionBg();
   }
 
   private actionBg() {
