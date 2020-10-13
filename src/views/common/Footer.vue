@@ -2,13 +2,13 @@
   <footer class="footer">
     <div class="content">
       <div class="col col1">
-        <span>让足迹 永不尘封</span>
-        <span>让心动 永不落空</span>
-        <span>你是光 永不萧瑟</span>
-        <span>是人间 无双颜色</span>
+        <p>你是<span class="stress">光</span> 永不萧瑟</p>
+        <p>是人间 <span class="stress">无双</span>颜色</p>
+        <p><span class="stress">不觉中</span> 降落在我眼瞳</p>
       </div>
-      <div class="col">
-        Email: roco2015@163.com
+      <div class="col col2">
+        <p>Email: roco2015@163.com</p>
+        <p>name: 圆企鹅·Alter</p>
       </div>
       <div class="col"></div>
     </div>
@@ -67,11 +67,6 @@ export default class Nav extends Vue {}
   text-align: center;
   .col {
     flex: 1;
-  }
-  .col1 {
-    span {
-      display: block;
-    }
   }
 }
 

@@ -6,15 +6,11 @@
         <li>完全不知道要写些什么</li>
         <li>不是文人、也不是墨客的<span class="stress">理科生</span></li>
         <li>脑回路或者说<span class="stress">精神</span>有点不正常</li>
-        <li>自定义职介为：<span class="stress">Berserker</span></li>
-        <li>看见我的<span class="stress">小狼狗</span>了吗</li>
       </ul>
       <ul class="intro-r">
         <li>就是想<span class="stress">搞</span>个博客玩玩</li>
         <li>是<span class="stress">废柴</span>哦</li>
-        <li>吃我一掌，<span class="stress">产品</span></li>
-        <li>对产品<span class="stress">宝具</span>砍需求，rm -rf&lt;overcharge时效果提升&gt;</li>
-        <li>快出来，叫你呢</li>
+        <li>自定义职介为：<span class="stress">Berserker</span></li>
       </ul>
     </main>
     <my-footer></my-footer>
@@ -72,7 +68,7 @@ export default class ModalEdit extends Vue {
   position: relative;
   width: 950px;
   margin: 0 auto;
-  padding-top: 250px;
+  padding-top: 150px;
   line-height: 34px;
 
   .intro-l {
@@ -85,13 +81,6 @@ export default class ModalEdit extends Vue {
     flex: 1;
     margin-left: 20px;
     text-align: left;
-  }
-
-  .stress {
-    padding: 0 2px;
-    font-size: 20px;
-    font-weight: bold;
-    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
   }
 }
 </style>
