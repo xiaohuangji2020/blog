@@ -1,0 +1,95 @@
+<template>
+  <footer class="footer">
+    <div class="content">
+      <div class="col col1">
+        <span>让足迹 永不尘封</span>
+        <span>让心动 永不落空</span>
+        <span>你是光 永不萧瑟</span>
+        <span>是人间 无双颜色</span>
+      </div>
+      <div class="col">
+        Email: roco2015@163.com
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="copyright">
+      <span class="item">Copyright &copy; 圆企鹅</span>
+      <a class="item" target="_blank" href="https://www.beian.miit.gov.cn/">辽ICP备2020012261号-1</a>
+      <a
+        class="item"
+        target="_blank"
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21011402000290"
+      >
+        <img src="/img/icons/beian.png" class="beian" />
+        <p>辽公网安备 21011402000290号</p>
+      </a>
+    </div>
+  </footer>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+@Component
+export default class Nav extends Vue {}
+</script>
+
+<style lang="less" scoped>
+.footer {
+  position: relative;
+  margin: 0 auto;
+  height: 300px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  overflow: hidden;
+  filter: drop-shadow(0 -2px 2px rgba(0, 0, 0, 0.5));
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(34, 39, 57, 0.8) url('~@/assets/images/footer-bg.jpg') no-repeat center top;
+    background-size: cover;
+    background-blend-mode: multiply;
+  }
+}
+.content {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  width: 950px;
+  margin: 0 auto;
+  padding-top: 30px;
+  line-height: 2;
+  font-size: 16px;
+  text-align: center;
+  .col {
+    flex: 1;
+  }
+  .col1 {
+    span {
+      display: block;
+    }
+  }
+}
+
+.copyright {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  justify-content: center;
+  .beian {
+    float: left;
+    margin-top: 3px;
+  }
+  .item {
+    margin-right: 30px;
+    white-space: nowrap;
+    color: white;
+  }
+}
+</style>

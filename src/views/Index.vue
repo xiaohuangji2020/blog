@@ -1,11 +1,5 @@
 <template>
   <div class="index">
-    <!-- <div class="bg">
-      <ul v-for="rIndex of rowCount" :key="rIndex">
-        <li v-for="cIndex of colCount" :key="cIndex" :class="`b-${rIndex}-${cIndex}`" class="bg-block"></li>
-      </ul>
-    </div> -->
-    <!-- <h1>Welcome! <span>and emmm~~~~</span></h1> -->
     <my-nav></my-nav>
     <main class="main">
       <ul class="intro-l">
@@ -23,26 +17,20 @@
         <li>快出来，叫你呢</li>
       </ul>
     </main>
-    <div class="separator"></div>
-    <div class="author">powered by 圆企鹅·Alter</div>
-    <div class="record">
-      <a target="_blank" href="https://www.beian.miit.gov.cn/">辽ICP备2020012261号-1</a>
-      <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21011402000290">
-        <img src="/img/icons/beian.png" />
-        <p>辽公网安备 21011402000290号</p>
-      </a>
-    </div>
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import myNav from '@/views/common/Nav.vue';
+import myFooter from '@/views/common/Footer.vue';
 import $ from 'jquery';
 
 @Component({
   components: {
-    myNav
+    myNav,
+    myFooter
   }
 })
 export default class ModalEdit extends Vue {
@@ -76,24 +64,14 @@ export default class ModalEdit extends Vue {
 
 <style lang="less" scoped>
 .index {
-  width: 950px;
   min-height: 100vh;
   margin: 0 auto;
-}
-h1 {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  color: white;
-
-  span {
-    padding-left: 10px;
-    font-size: 18px;
-  }
 }
 .main {
   display: flex;
   position: relative;
+  width: 950px;
+  margin: 0 auto;
   padding-top: 250px;
   line-height: 34px;
 
@@ -114,55 +92,6 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
-  }
-}
-.separator {
-  position: absolute;
-  left: 50%;
-  width: 800px;
-  height: 3px;
-  margin-top: 30px;
-  background: rgba(44, 62, 80, 0.5);
-  transform: translateX(-50%);
-}
-.author {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  color: white;
-}
-.record {
-  display: flex;
-  position: absolute;
-  bottom: 5px;
-  left: 50px;
-  color: white;
-  font-size: 12px;
-  a {
-    display: flex;
-    margin-right: 10px;
-  }
-}
-.bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  ul {
-    display: flex;
-  }
-  .bg-block {
-    position: relative;
-    width: 55px;
-    height: 55px;
-    background: url(~@/assets/images/bg-1.png) repeat;
-    opacity: 0.5;
-  }
-  .action {
-    transform-origin: left bottom;
-    animation: my-index-bg-action 1s ease-in;
-    z-index: 9;
   }
 }
 </style>

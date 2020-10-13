@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <header class="header">
-      <div class="logo">logo</div>
+      <div class="logo"></div>
       <div class="header-icon">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon_qq"></use>
@@ -50,7 +50,10 @@ export default class Nav extends Vue {
 
 <style lang="less" scoped>
 .nav {
+  width: 950px;
   height: 200px;
+  margin: 0 auto;
+  font-weight: 500;
   .header {
     display: flex;
     height: 64px;
@@ -59,9 +62,10 @@ export default class Nav extends Vue {
     padding-top: 60px;
     .logo {
       width: 100px;
-      padding-right: 30px;
-      text-align: center;
-      font-size: 32px;
+      margin: 0 30px;
+      background: url('~@/assets/images/logo.png') no-repeat center;
+      background-size: contain;
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
     }
     .header-icon {
       display: flex;
@@ -84,6 +88,7 @@ export default class Nav extends Vue {
       .link {
         display: block;
         padding: 0 10px;
+        color: #414a60;
       }
     }
   }
