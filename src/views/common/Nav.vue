@@ -53,16 +53,17 @@ export default class Nav extends Vue {
   width: 950px;
   height: 200px;
   margin: 0 auto;
+  padding: 0 15px;
   font-weight: 500;
   .header {
     display: flex;
-    height: 64px;
+    height: 124px;
     line-height: 64px;
     margin-bottom: 20px;
     padding-top: 60px;
     .logo {
       width: 100px;
-      margin: 0 30px;
+      margin: 0 15px;
       background: url('~@/assets/images/logo.png') no-repeat center;
       background-size: contain;
       filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
@@ -81,8 +82,6 @@ export default class Nav extends Vue {
     width: 950px;
     height: 44px;
     line-height: 44px;
-    margin: 0 auto;
-    padding: 0 15px;
     .menu-item {
       padding: 0 5px;
       .link {
