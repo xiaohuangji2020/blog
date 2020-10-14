@@ -1,0 +1,13 @@
+build
+config
+public
+scripts
+dist
+lib
+
+build/**
+config/**
+public/**
+scripts/**
+dist/**
+lib/**
