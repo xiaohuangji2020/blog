@@ -5,14 +5,14 @@ module.exports = {
       patterns: ['./src/assets/css/main.less']
     }
   },
-  // chainWebpack: config => {
-  //   config
-  //     .plugin('html')
-  //     .tap(args => {
-  //       args[0].title = '机关算尽'
-  //       return args
-  //     })
-  // },
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = '机关算尽'
+        return args
+      })
+  },
   pwa: {
     "name": "33机关算尽22",
     "short_name": "33机关算尽22",

@@ -78,7 +78,7 @@ export default class Nav extends Vue {
   }
   .menu {
     display: flex;
-    width: 920px;
+    width: 950px;
     height: 44px;
     line-height: 44px;
     margin: 0 auto;
@@ -90,6 +90,14 @@ export default class Nav extends Vue {
         padding: 0 10px;
         color: #414a60;
       }
+    }
+  }
+}
+@media (max-width: 950px) {
+  .nav {
+    width: 100%;
+    .menu {
+      width: 100%;
     }
   }
 }

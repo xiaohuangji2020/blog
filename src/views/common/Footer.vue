@@ -10,7 +10,6 @@
         <p>Email: roco2015@163.com</p>
         <p>name: 圆企鹅·Alter</p>
       </div>
-      <div class="col"></div>
     </div>
     <div class="copyright">
       <span class="item">Copyright &copy; 圆企鹅</span>
@@ -30,7 +29,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 @Component
-export default class Nav extends Vue {}
+export default class Footer extends Vue {}
 </script>
 
 <style lang="less" scoped>
@@ -85,6 +84,11 @@ export default class Nav extends Vue {}
     margin-right: 30px;
     white-space: nowrap;
     color: white;
+  }
+}
+@media (max-width: 950px) {
+  .content {
+    width: 100%;
   }
 }
 </style>
