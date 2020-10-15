@@ -39,7 +39,9 @@ export default class Footer extends Vue {}
   }
   .icon {
     float: left;
-    margin-top: 3px;
+    width: 14px;
+    height: 14px;
+    margin-top: 6px;
   }
 }
 </style>

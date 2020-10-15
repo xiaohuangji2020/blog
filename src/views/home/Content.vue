@@ -4,15 +4,7 @@
     <section class="sec-note">
       <h3>笔记</h3>
       <div class="inner">
-        <section class="appearanimation box">
-          文章1
-        </section>
-        <section class="appearanimation box">
-          文章2
-        </section>
-        <section class="appearanimation box">
-          文章3
-        </section>
+        <note-box v-for="note of noteList" :key="note.id" :note="note"></note-box>
       </div>
     </section>
   </main>
@@ -20,9 +12,29 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import NoteBox from './components/NoteBox.vue';
 
-@Component
-export default class Content extends Vue {}
+@Component({
+  components: {
+    NoteBox
+  }
+})
+export default class Content extends Vue {
+  private noteList = [
+    {
+      id: 1,
+      title: 'ajax防重复点击',
+      subTitle: '通过拦截请求实现',
+      query: 'ajax'
+    },
+    {
+      id: 2,
+      title: '照片墙',
+      subTitle: '操作dom了',
+      query: 'picWall'
+    }
+  ];
+}
 </script>
 
 <style lang="less" scoped>
@@ -66,35 +78,6 @@ export default class Content extends Vue {}
     position: relative;
     flex-flow: row wrap;
     margin: 0 -15px;
-    .box {
-      width: 445px;
-      height: 270px;
-      margin: 15px;
-      overflow: hidden;
-      box-shadow: 0 9px 25px -26px rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      transition: transform 0.2s linear;
-      cursor: pointer;
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s linear;
-      }
-      &:hover {
-        transform: translateY(-5px);
-        &::before {
-          opacity: 1;
-        }
-      }
-    }
   }
 }
 @media (max-width: 950px) {

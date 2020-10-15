@@ -3,10 +3,10 @@
     <header class="header">
       <div class="logo"></div>
       <div class="header-icon">
-        <svg class="icon" aria-hidden="true">
+        <svg class="svg-icon" aria-hidden="true">
           <use xlink:href="#icon_qq"></use>
         </svg>
-        <svg class="icon" aria-hidden="true">
+        <svg class="svg-icon" aria-hidden="true">
           <use xlink:href="#icon_qq"></use>
         </svg>
       </div>
@@ -71,7 +71,7 @@ export default class Nav extends Vue {
     .header-icon {
       display: flex;
       align-items: center;
-      .icon {
+      .svg-icon {
         margin-right: 10px;
         font-size: 22px;
       }
