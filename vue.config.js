@@ -10,7 +10,7 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new htmlWebpackPlugin({
-        title: '何妨英勇',
+        title: '万物尽风流',
         template: 'public/index.html'
       })
     ]
