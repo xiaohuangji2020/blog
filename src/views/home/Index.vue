@@ -19,9 +19,7 @@ import myContent from './HomeContent.vue';
     myFooter
   }
 })
-export default class Index extends Vue {
-  private navList: string[] = ['首页', '技术', '简历', '关于'];
-}
+export default class Index extends Vue {}
 </script>
 
 <style lang="less" scoped>
