@@ -144,10 +144,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 #trailing-effect-wrap {
   height: 100vh;
   overflow: hidden;
-  cursor: default;
+  #trailing-effect-canvas {
+    cursor: default;
+  }
 }
 </style>
