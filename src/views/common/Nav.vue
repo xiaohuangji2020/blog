@@ -30,9 +30,9 @@ export default class Nav extends Vue {
       title: 'HOME'
     },
     {
-      path: '/t',
-      name: 'technology',
-      title: 'Technology'
+      path: '/note',
+      name: 'note',
+      title: 'Note'
     },
     {
       path: '/about',

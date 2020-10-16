@@ -1,8 +1,8 @@
 <template>
-  <router-link class="appearanimation box" :to="{ name: 'note', query: note.query }">
+  <a :href="note.url" target="_blank" class="appearanimation box">
     <h5 class="title">{{ note.title }}</h5>
     <div class="sub-title">{{ note.subTitle }}</div>
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">
@@ -18,6 +18,7 @@ export default class NoteBox extends Vue {
 .box {
   margin: 15px;
   padding: 20px 30px;
+  color: #414a60;
   overflow: hidden;
   box-shadow: 0 9px 25px -22px rgba(0, 0, 0, 0.5);
   border-radius: 10px;

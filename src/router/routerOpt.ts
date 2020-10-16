@@ -1,8 +1,8 @@
 const router = [
   {
-    path: '/t',
-    name: 'technology',
-    component: () => import(/* webpackChunkName: 'technology' */ '@/views/technology/Index.vue')
+    path: '/note',
+    name: 'note',
+    component: () => import(/* webpackChunkName: 'notes' */ '@/views/note/Index.vue')
   },
   {
     path: '/cv',

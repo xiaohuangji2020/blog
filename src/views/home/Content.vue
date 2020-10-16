@@ -25,13 +25,31 @@ export default class Content extends Vue {
       id: 1,
       title: 'ajax防重复点击',
       subTitle: '通过拦截请求实现',
-      query: 'ajax'
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd3Y9jPn2MSQoW2daGqh1O7EP0'
     },
     {
       id: 2,
       title: '照片墙',
       subTitle: '操作dom了',
-      query: 'picWall'
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2ODRC01FDQrn2RyEmE1gppMW'
+    },
+    {
+      id: 3,
+      title: 'webpack添加打包参数，添加环境变量',
+      subTitle: 'vue版',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd0rFAwD08T4zN20JL4g3h1UcB'
+    },
+    {
+      id: 4,
+      title: 'webpack打包优化',
+      subTitle: 'vue版',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2jEO8416uA9F2pNgNP1aCdwI'
+    },
+    {
+      id: 5,
+      title: 'v-for中的key，以及key的单独用法',
+      subTitle: '·',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd3cfFKR01JAFx2-XbIR2_aQYt'
     }
   ];
 }
