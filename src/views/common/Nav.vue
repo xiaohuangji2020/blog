@@ -13,7 +13,7 @@
     </header>
     <ul class="menu">
       <li v-for="(item, index) of navList" :key="index" class="menu-item">
-        <router-link :to="item.name" class="link">{{ item.title }}</router-link>
+        <router-link :to="{ name: item.name }" class="link">{{ item.title }}</router-link>
       </li>
     </ul>
   </div>
