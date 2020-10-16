@@ -31,15 +31,15 @@ export default class Nav extends Vue {
       name: 'index',
       title: 'HOME'
     },
+    // {
+    //   path: '/note',
+    //   name: 'note',
+    //   title: 'Note'
+    // },
     {
-      path: '/note',
-      name: 'note',
-      title: 'Note'
-    },
-    {
-      path: '/about',
-      name: 'about',
-      title: 'About Me'
+      path: '/cv',
+      name: 'cv',
+      title: 'CV'
     },
     {
       path: '/other',
