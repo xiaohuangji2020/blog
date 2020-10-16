@@ -2,7 +2,11 @@
   <main class="main">
     <section class="appear-animation sec-banner"></section>
     <section class="sec-note">
-      <h3>笔记</h3>
+      <h3 class="title">canvas相关笔记</h3>
+      <div class="inner">
+        <note-box v-for="note of canvasNoteList" :key="note.id" :note="note"></note-box>
+      </div>
+      <h3 class="title">其他笔记</h3>
       <div class="inner">
         <note-box v-for="note of noteList" :key="note.id" :note="note"></note-box>
       </div>
@@ -20,6 +24,14 @@ import NoteBox from './components/NoteBox.vue';
   }
 })
 export default class Content extends Vue {
+  private canvasNoteList = [
+    {
+      id: 1,
+      title: '拖尾效果',
+      subTitle: 'canvas',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M'
+    }
+  ];
   private noteList = [
     {
       id: 1,
@@ -50,6 +62,12 @@ export default class Content extends Vue {
       title: 'v-for中的key，以及key的单独用法',
       subTitle: '·',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd3cfFKR01JAFx2-XbIR2_aQYt'
+    },
+    {
+      id: 6,
+      title: '前端面试题',
+      subTitle: '2020整理',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2ko3um2xWAuO2Qh7EX3rp3NW'
     }
   ];
 }
@@ -91,6 +109,9 @@ export default class Content extends Vue {
 }
 .sec-note {
   margin-top: 60px;
+  .title {
+    margin-top: 20px;
+  }
   .inner {
     display: flex;
     position: relative;

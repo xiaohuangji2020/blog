@@ -3,10 +3,12 @@
     <header class="header">
       <div class="logo"></div>
       <div class="header-icon">
-        <svg class="svg-icon" aria-hidden="true">
-          <use xlink:href="#icon_qq"></use>
-        </svg>
-        <svg class="svg-icon" aria-hidden="true">
+        <a href="https://github.com/roco2015" target="_blank" title="roco2015@github.com">
+          <svg class="svg-icon" aria-hidden="true">
+            <use xlink:href="#icon_github"></use>
+          </svg>
+        </a>
+        <svg class="svg-icon icon-qq" aria-hidden="true">
           <use xlink:href="#icon_qq"></use>
         </svg>
       </div>
@@ -71,9 +73,14 @@ export default class Nav extends Vue {
     .header-icon {
       display: flex;
       align-items: center;
+      margin-left: 20px;
+      font-size: 22px;
       .svg-icon {
         margin-right: 10px;
-        font-size: 22px;
+        color: #414a60;
+      }
+      .icon-qq {
+        font-size: 0.96em;
       }
     }
   }

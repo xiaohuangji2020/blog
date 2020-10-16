@@ -23,6 +23,11 @@ const router = [
     path: '/other',
     name: 'other',
     component: () => import(/* webpackChunkName: 'other' */ '@/views/other/Index.vue')
+  },
+  {
+    path: '/demo/:name',
+    name: 'demo',
+    component: () => import(/* webpackChunkName: 'demo' */ '@/views/demo/Index.vue')
   }
 ];
 
