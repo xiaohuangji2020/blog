@@ -12,9 +12,7 @@ import TrailingEffect from './TrailingEffect.vue';
     TrailingEffect
   }
 })
-export default class Content extends Vue {
-}
+export default class Content extends Vue {}
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

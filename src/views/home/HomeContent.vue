@@ -29,7 +29,8 @@ export default class Content extends Vue {
       id: 1,
       title: '拖尾效果',
       subTitle: 'canvas',
-      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M'
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M',
+      demo: 'TrailingEffect'
     }
   ];
   private noteList = [

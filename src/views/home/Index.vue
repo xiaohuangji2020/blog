@@ -9,8 +9,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import myNav from '@/views/common/Nav.vue';
-import myContent from './Content.vue';
 import myFooter from '@/views/common/Footer.vue';
+import myContent from './HomeContent.vue';
 
 @Component({
   components: {
