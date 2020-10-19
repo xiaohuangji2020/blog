@@ -7,9 +7,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import TrailingEffect from './TrailingEffect.vue';
+import Coil from './Coil1.vue';
 @Component({
   components: {
-    TrailingEffect
+    TrailingEffect,
+    Coil
   }
 })
 export default class Content extends Vue {}

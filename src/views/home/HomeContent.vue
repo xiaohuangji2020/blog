@@ -30,7 +30,15 @@ export default class Content extends Vue {
       title: '拖尾效果',
       subTitle: 'canvas',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M',
-      demo: 'TrailingEffect'
+      demo: 'TrailingEffect',
+      resource: 'https://github.com/roco2015/blog/blob/master/src/views/demo/TrailingEffect.vue'
+    },
+    {
+      id: 2,
+      title: '线圈波动',
+      subTitle: 'canvas',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M',
+      demo: 'Coil'
     }
   ];
   private noteList = [
@@ -117,6 +125,7 @@ export default class Content extends Vue {
     display: flex;
     position: relative;
     flex-flow: row wrap;
+    align-items: flex-start;
     margin: 0 -15px;
   }
 }

@@ -4,7 +4,10 @@
       <h5 class="title">{{ note.title }}</h5>
       <div class="sub-title">{{ note.subTitle }}</div>
     </a>
-    <router-link v-if="note.demo" :to="{ name: 'demo', params: { name: note.demo } }" class="demo">demo</router-link>
+    <div class="footer">
+      <router-link v-if="note.demo" :to="{ name: 'demo', params: { name: note.demo } }" class="item">demo</router-link>
+      <a v-if="note.resource" :href="note.resource" target="_blank" class="item">code</a>
+    </div>
   </div>
 </template>
 
@@ -20,6 +23,7 @@ export default class NoteBox extends Vue {
 <style lang="less" scoped>
 .box {
   display: flex;
+  flex-flow: column;
   position: relative;
   margin: 15px;
   overflow: hidden;
@@ -61,27 +65,28 @@ export default class NoteBox extends Vue {
     opacity: 0.9;
   }
 
-  .demo {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 20px;
-    padding: 0 30px;
+  .footer {
+    margin-top: -20px;
     line-height: 20px;
     background: rgba(0, 0, 0, 0.1);
-    color: #414a60;
     font-size: 12px;
-    &::before {
-      content: '';
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      width: 8px;
-      height: 8px;
-      background: #f6f6f8;
-      border-radius: 50%;
-      transform: translateY(-50%);
+    .item {
+      display: block;
+      position: relative;
+      height: 20px;
+      padding: 0 30px;
+      color: #414a60;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        background: #f6f6f8;
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
     }
   }
 }
