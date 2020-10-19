@@ -79,7 +79,7 @@ export default class NoteBox extends Vue {
       top: 50%;
       width: 8px;
       height: 8px;
-      background: white;
+      background: #f6f6f8;
       border-radius: 50%;
       transform: translateY(-50%);
     }
