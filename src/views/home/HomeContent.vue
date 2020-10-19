@@ -35,10 +35,10 @@ export default class Content extends Vue {
     },
     {
       id: 2,
-      title: '线圈波动',
+      title: '线圈波动(未完成)',
       subTitle: 'canvas',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M',
-      demo: 'Coil'
+      demo: 'CoilWave'
     }
   ];
   private noteList = [
