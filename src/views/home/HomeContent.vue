@@ -31,14 +31,15 @@ export default class Content extends Vue {
       subTitle: 'canvas',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M',
       demo: 'TrailingEffect',
-      resource: 'https://github.com/roco2015/blog/blob/master/src/views/demo/TrailingEffect.vue'
+      code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/TrailingEffect.vue'
     },
     {
       id: 2,
       title: '线圈波动(未完成)',
       subTitle: 'canvas',
-      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M',
-      demo: 'CoilWave'
+      url: 'javascript:;',
+      demo: 'CoilWave',
+      code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/CoilWave.vue'
     }
   ];
   private noteList = [

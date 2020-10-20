@@ -6,7 +6,7 @@
     </a>
     <div class="footer">
       <router-link v-if="note.demo" :to="{ name: 'demo', params: { name: note.demo } }" class="item">demo</router-link>
-      <a v-if="note.resource" :href="note.resource" target="_blank" class="item">code</a>
+      <a v-if="note.code" :href="note.code" target="_blank" class="item">code</a>
     </div>
   </div>
 </template>
