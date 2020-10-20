@@ -37,7 +37,7 @@ export default class Content extends Vue {
       id: 2,
       title: '线圈波动(未完成)',
       subTitle: 'canvas',
-      url: 'javascript:;',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1dlk4q2gQ4Pv274fSi33e2qo',
       demo: 'CoilWave',
       code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/CoilWave.vue'
     }
