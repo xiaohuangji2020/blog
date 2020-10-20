@@ -41,7 +41,8 @@ export default class CoilWave extends Vue {
   private option = {
     scaleY: 0.2,
     circleSpeed: 0.01, // 环运动速度
-    circleRange: 40 // 环运动范围
+    circleRange: 40, // 环运动范围
+    limitDeg: 2 * Math.PI
   };
   private circles: Circle[] = [];
   private balls: Ball[] = [];
@@ -112,6 +113,9 @@ export default class CoilWave extends Vue {
     circles.forEach((circle: Circle, index: number) => {
       const dis = Math.sin(circle.deg) * option.circleRange;
       circle.deg += option.circleSpeed;
+      if (circle.deg > option.limitDeg) {
+        circle.deg -= 2 * Math.PI;
+      }
       ctx.beginPath();
       ctx.arc(circle.x, circle.y / option.scaleY - dis * 10, circle.r - dis * 2, 0, 2 * Math.PI);
       if (index === 0) {
@@ -130,11 +134,17 @@ export default class CoilWave extends Vue {
       ctx.beginPath();
       const dis = Math.sin(ball.deg2) * option.circleRange;
       ball.deg2 += option.circleSpeed;
+      if (ball.deg2 > option.limitDeg) {
+        ball.deg2 -= 2 * Math.PI;
+      }
       const curR = ball.R - dis * 2; // 当前时刻圆（未压缩的轨道圆圈）的半径
 
       const x = Math.sin(ball.deg) * curR;
       const y = Math.cos(ball.deg) * curR * this.option.scaleY;
       ball.deg += ball.speed;
+      if (ball.deg > option.limitDeg) {
+        ball.deg -= 2 * Math.PI;
+      }
 
       ctx.arc(ball.x + x, ball.y + y - dis * 10 * this.option.scaleY, ball.r, 0, 2 * Math.PI);
       ctx.fill();
