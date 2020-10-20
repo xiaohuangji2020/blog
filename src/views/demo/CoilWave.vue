@@ -51,6 +51,9 @@ export default class CoilWave extends Vue {
     this.pannel.centerX = this.pannel.width / 2;
     this.pannel.centerY = this.pannel.height / 2;
     this.generate();
+
+    ctx.lineWidth = this.style.lineWidth;
+    ctx.strokeStyle = this.style.strokeStyle;
     this.draw(ctx);
   }
   private generate() {
@@ -75,9 +78,7 @@ export default class CoilWave extends Vue {
   private drawCircle(ctx: CanvasRenderingContext2D) {
     const circles = this.circles;
     const option = this.option;
-    ctx.lineWidth = this.style.lineWidth;
     ctx.fillStyle = this.style.fillStyle;
-    ctx.strokeStyle = this.style.strokeStyle;
     ctx.save();
     ctx.scale(1, option.scaleY);
     circles.forEach((circle: Circle, index: number) => {
