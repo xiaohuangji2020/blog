@@ -33,7 +33,6 @@ export default class CoilWave extends Vue {
   private canvas: HTMLCanvasElement | null = null;
   private ctx: CanvasRenderingContext2D | null = null;
   private style = {
-    bgFillStyle: 'white',
     lineWidth: 1,
     fillStyle: '#aaa',
     strokeStyle: '#888'
@@ -62,13 +61,13 @@ export default class CoilWave extends Vue {
     this.canvas.height = this.pannel.height;
     this.pannel.centerX = this.pannel.width / 2;
     this.pannel.centerY = this.pannel.height / 2;
-    this.generate();
+    this.generator();
 
     ctx.lineWidth = this.style.lineWidth;
     ctx.strokeStyle = this.style.strokeStyle;
     this.draw(ctx);
   }
-  private generate() {
+  private generator() {
     let i = 0;
     while (++i < 7) {
       this.circles.push({
@@ -101,8 +100,7 @@ export default class CoilWave extends Vue {
     });
   }
   private clear(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = this.style.bgFillStyle;
-    ctx.fillRect(0, 0, this.pannel.width, this.pannel.height);
+    ctx.clearRect(0, 0, this.pannel.width, this.pannel.height);
   }
   private drawCircles(ctx: CanvasRenderingContext2D) {
     const circles = this.circles;

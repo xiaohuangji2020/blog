@@ -44,6 +44,14 @@ export default class Content extends Vue {
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1dlk4q2gQ4Pv274fSi33e2qo',
       demo: 'CoilWave',
       code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/CoilWave.vue'
+    },
+    {
+      id: 3,
+      title: '模拟风吹（未完成）',
+      subTitle: '主要记录风吹的原理',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1dlk4q2gQ4Pv274fSi33e2qo',
+      demo: 'WindPrinciple',
+      code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/CoilWave.vue'
     }
   ];
   private effectList = [
