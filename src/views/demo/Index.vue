@@ -8,10 +8,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import TrailingEffect from './TrailingEffect.vue';
 import CoilWave from './CoilWave.vue';
+import PicWall from './PicWall.vue';
 @Component({
   components: {
     TrailingEffect,
-    CoilWave
+    CoilWave,
+    PicWall
   }
 })
 export default class Content extends Vue {}

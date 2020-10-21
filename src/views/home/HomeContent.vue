@@ -6,6 +6,10 @@
       <div class="inner">
         <note-box v-for="note of canvasNoteList" :key="note.id" :note="note"></note-box>
       </div>
+      <h3 class="title">其他特效笔记</h3>
+      <div class="inner">
+        <note-box v-for="note of effectList" :key="note.id" :note="note"></note-box>
+      </div>
       <h3 class="title">其他笔记</h3>
       <div class="inner">
         <note-box v-for="note of noteList" :key="note.id" :note="note"></note-box>
@@ -42,6 +46,16 @@ export default class Content extends Vue {
       code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/CoilWave.vue'
     }
   ];
+  private effectList = [
+    {
+      id: 1,
+      title: '照片墙',
+      subTitle: '操作dom了',
+      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2ODRC01FDQrn2RyEmE1gppMW',
+      demo: 'PicWall',
+      code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/PicWall.vue'
+    }
+  ];
   private noteList = [
     {
       id: 1,
@@ -51,30 +65,24 @@ export default class Content extends Vue {
     },
     {
       id: 2,
-      title: '照片墙',
-      subTitle: '操作dom了',
-      url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2ODRC01FDQrn2RyEmE1gppMW'
-    },
-    {
-      id: 3,
       title: 'webpack添加打包参数，添加环境变量',
       subTitle: 'vue版',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd0rFAwD08T4zN20JL4g3h1UcB'
     },
     {
-      id: 4,
+      id: 3,
       title: 'webpack打包优化',
       subTitle: 'vue版',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2jEO8416uA9F2pNgNP1aCdwI'
     },
     {
-      id: 5,
+      id: 4,
       title: 'v-for中的key，以及key的单独用法',
       subTitle: '·',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd3cfFKR01JAFx2-XbIR2_aQYt'
     },
     {
-      id: 6,
+      id: 5,
       title: '前端面试题',
       subTitle: '2020整理',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2ko3um2xWAuO2Qh7EX3rp3NW'
