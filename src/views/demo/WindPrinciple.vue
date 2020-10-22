@@ -3,7 +3,7 @@
     <div v-if="blower" class="info">
       <p>风点坐标：x {{ blower.x }}，y {{ pannel.height - blower.y }}</p>
       <p>风向：{{ ((blower.deg / 2 / Math.PI) * 360).toFixed(2) }}</p>
-      <p>风力大小：{{ blower.F.toFixed(2) }}</p>
+      <p>风速大小：{{ blower.v.toFixed(2) }}</p>
       <p>符合标准坐标系</p>
     </div>
     <canvas id="canvas"></canvas>
@@ -16,15 +16,34 @@ interface Blower {
   x: number; // x坐标
   y: number; // y坐标
   r: number; // 半径
-  deg: number; // 吹风角度
-  F: number; // 吹力大小
+  deg: number; // 风速角度
+  vL: number; // 单位风速用多长的箭头表示
+  v: number; // 风速速率大小
+  vx: number; // x方向速率大小 右为正，左为负
+  vy: number; // y方向速率大小 上为正，下为负
   arrowX: number; // 风向标坐标x，由deg和F推算
   arrowY: number; // 风向标坐标y
   arrowR: number; // 懒了，应该是箭头，画成了圆点
 }
+// 根据空气阻力(即物体受力)的公式：F=(1/2)CρSV^2，本例简化下 F=V^2 假设(1/2)CρS=1
+// 式中：C为空气阻力系数；ρ为空气密度；S物体迎风面积；V为物体与空气的相对运动速度。
+// 由上式可知，正常情况下空气阻力的大小与空气阻力系数及迎风面积成正比，与速度平方成正比。
+// 求得受力后，F=am，可知物体加速度
+// 被吹的气泡
+interface Bubble {
+  x: number;
+  y: number;
+  r: number;
+  v: number; // 速率
+  vx: number; // x方向速率大小
+  vy: number; // y方向速率大小
+  color: string;
+  m: number; // 自身质量
+}
 import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class WindPrinciple extends Vue {
+  private drawer = 0;
   private pannel = {
     width: 0,
     height: 0
@@ -40,11 +59,15 @@ export default class WindPrinciple extends Vue {
     y: 0,
     r: 0,
     deg: 0,
-    F: 0,
+    vL: 100,
+    v: 0,
+    vx: 0,
+    vy: 0,
     arrowX: 0,
     arrowY: 0,
     arrowR: 0
   };
+  private bubbles: Bubble[] = [];
 
   private mounted() {
     this.canvas = document.querySelector('#canvas');
@@ -68,23 +91,46 @@ export default class WindPrinciple extends Vue {
     this.draw(ctx);
   }
 
+  private beforeDestroy() {
+    cancelAnimationFrame(this.drawer);
+  }
+
   private generator() {
     // 初始化鼓风机
     const x = 0;
     const y = this.pannel.height;
     const r = 50;
     const deg = Math.PI / 4;
-    const F = 100;
+    const v = 10;
+    const vL = 10;
     this.blower = {
       x,
       y,
       r,
       deg,
-      F,
-      arrowX: x + F * Math.cos(deg),
-      arrowY: y - F * Math.sin(deg),
+      vL,
+      v,
+      vx: 0,
+      vy: 0,
+      arrowX: x + v * vL * Math.cos(deg),
+      arrowY: y - v * vL * Math.sin(deg),
       arrowR: this.option.lineWidth + 2
     };
+
+    // 初始化气泡
+    let i = 0;
+    while (i++ < 1) {
+      this.bubbles.push({
+        x: this.pannel.width >> 1,
+        y: this.pannel.height >> 1,
+        r: 30,
+        v: 0,
+        vx: 0,
+        vy: 0,
+        color: '#E1F5FE',
+        m: 1
+      });
+    }
   }
 
   private initCtx(ctx: CanvasRenderingContext2D) {
@@ -110,23 +156,25 @@ export default class WindPrinciple extends Vue {
       const disX = x - blower.x;
       const disY = y - blower.y;
       if (Math.abs(disX) < blower.r && Math.abs(disY) < blower.r) {
-        this.blowing = true;
         blowerChanging = true;
         dis.x = disX;
         dis.y = disY;
         dis.arrowX = arrowDisX;
         dis.arrowY = arrowDisY;
+        blower.vx = blower.v * Math.cos(blower.deg);
+        blower.vy = blower.v * Math.sin(blower.deg);
       }
     };
+    //改变风
     const mousemove = (x: number, y: number) => {
       if (blowerArrowChaning) {
         blower.arrowX = x - dis.arrowX;
         blower.arrowY = y - dis.arrowY;
 
-        const sideX = blower.arrowX - blower.x;
-        const sideY = blower.y - blower.arrowY; // canvas的坐标圆点和数学坐标系不一样
+        const sideX = (blower.arrowX - blower.x) / blower.vL;
+        const sideY = (blower.y - blower.arrowY) / blower.vL; // canvas的坐标圆点和数学坐标系不一样
         blower.deg = Math.atan2(sideY, sideX);
-        blower.F = Math.sqrt(Math.pow(sideX, 2) + Math.pow(sideY, 2));
+        blower.v = Math.sqrt(Math.pow(sideX, 2) + Math.pow(sideY, 2));
       }
       if (blowerChanging) {
         blower.arrowX = x - dis.arrowX;
@@ -136,7 +184,8 @@ export default class WindPrinciple extends Vue {
       }
     };
     const mouseup = () => {
-      this.blowing = false;
+      blower.vx = 0;
+      blower.vy = 0;
       blowerArrowChaning = false;
       blowerChanging = false;
     };
@@ -162,7 +211,16 @@ export default class WindPrinciple extends Vue {
       mouseup();
     });
   }
-  // private changeWind(ctx: CanvasRenderingContext2D) {}
+
+  private draw(ctx: CanvasRenderingContext2D) {
+    ctx.clearRect(0, 0, this.pannel.width, this.pannel.height);
+    this.drawBlower(ctx);
+    this.drawBubbles(ctx);
+    this.moveBubbles();
+    this.drawer = requestAnimationFrame(() => {
+      this.draw(ctx);
+    });
+  }
 
   private drawBlower(ctx: CanvasRenderingContext2D) {
     const blower = this.blower;
@@ -181,11 +239,52 @@ export default class WindPrinciple extends Vue {
     ctx.fill();
   }
 
-  private draw(ctx: CanvasRenderingContext2D) {
-    ctx.clearRect(0, 0, this.pannel.width, this.pannel.height);
-    this.drawBlower(ctx);
-    requestAnimationFrame(() => {
-      this.draw(ctx);
+  private drawBubbles(ctx: CanvasRenderingContext2D) {
+    const bubbles = this.bubbles;
+    bubbles.forEach(bubble => {
+      ctx.beginPath();
+      ctx.arc(bubble.x, bubble.y, bubble.r, 0, 2 * Math.PI);
+      ctx.fillStyle = bubble.color;
+      ctx.fill();
+    });
+  }
+
+  private moveBubbles() {
+    const bubbles = this.bubbles;
+    const bvx = this.blower.vx;
+    const bvy = this.blower.vy;
+    const W = this.pannel.width;
+    const H = this.pannel.height;
+    // 先计算速度
+    bubbles.forEach(bubble => {
+      // 速度差
+      const diffVx = bvx - bubble.vx;
+      // 速度方向
+      const directionX = diffVx > 0 ? 1 : -1;
+      // F=(1/2)CρSV^2，简化下假设(1/2)CρS=1，所以 F=V^2
+      const Fx = directionX * Math.pow(diffVx, 2);
+      // F=am
+      const ax = Fx / bubble.m;
+      // v = v + a * t 假设t为1
+      bubble.vx += ax;
+      if ((bubble.vx > 0 && bubble.vx > bvx) || (bubble.vx < 0 && bubble.vx < bvx)) bubble.vx = bvx;
+      if (bvx === 0 && bubble.vx < 0) bubble.vx = 0;
+      // x = x + vt 假设t为1
+      bubble.x += bubble.vx;
+      if (bubble.x <= 0) bubble.x = 0;
+      if (bubble.x >= W) bubble.x = W;
+
+      const diffVy = bvy - bubble.vy;
+      console.log(bvy, bubble.vy);
+      const directionY = diffVy > 0 ? 1 : -1;
+      const Fy = directionY * Math.pow(diffVy, 2);
+      const ay = Fy / bubble.m;
+      bubble.vy += ay; // 假设t为1
+      if ((bubble.vy > 0 && bubble.vy > bvy) || (bubble.vy < 0 && bubble.vy < bvy)) bubble.vy = bvy;
+      if (bvy === 0 && bubble.vy < 0) bubble.vy = 0;
+      bubble.y -= bubble.vy; // 和数学坐标系不一样，所以反着来
+      if (bubble.y <= 0) bubble.y = 0;
+      if (bubble.y >= H) bubble.y = H;
     });
   }
 }

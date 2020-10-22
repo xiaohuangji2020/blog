@@ -9,6 +9,7 @@ export default {
   name: 'trailing-effect',
   data() {
     return {
+      drawer: 0,
       ctx: {},
       width: 800,
       height: 600,
@@ -55,7 +56,10 @@ export default {
     });
     this.ctx = canvas.getContext('2d');
     setInterval(this.createPart, 300); // 控制新增
-    requestAnimationFrame(this.render); // 绘制
+    this.drawer = requestAnimationFrame(this.render); // 绘制
+  },
+  beforeDestroy() {
+    cancelAnimationFrame(this.drawer);
   },
   methods: {
     createPart() {

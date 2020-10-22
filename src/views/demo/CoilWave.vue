@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <router-link :to="{ path: '/' }">111</router-link>
     <canvas id="canvas"></canvas>
   </div>
 </template>
@@ -24,6 +25,7 @@ interface Ball {
 import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class CoilWave extends Vue {
+  private drawer = 0;
   private pannel = {
     width: 0,
     height: 0,
@@ -67,6 +69,9 @@ export default class CoilWave extends Vue {
     ctx.strokeStyle = this.style.strokeStyle;
     this.draw(ctx);
   }
+  private beforeDestroy() {
+    cancelAnimationFrame(this.drawer);
+  }
   private generator() {
     let i = 0;
     while (++i < 7) {
@@ -95,8 +100,9 @@ export default class CoilWave extends Vue {
     this.clear(ctx);
     this.drawCircles(ctx);
     this.drawBalls(ctx);
-    requestAnimationFrame(() => {
+    this.drawer = requestAnimationFrame(() => {
       this.draw(ctx);
+      console.log('draw');
     });
   }
   private clear(ctx: CanvasRenderingContext2D) {
