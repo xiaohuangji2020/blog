@@ -6,12 +6,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import AnimationBasic from './AnimationBasic.vue';
 import TrailingEffect from './TrailingEffect.vue';
 import CoilWave from './CoilWave.vue';
 import PicWall from './PicWall.vue';
 import WindPrinciple from './WindPrinciple.vue';
 @Component({
   components: {
+    AnimationBasic,
     TrailingEffect,
     CoilWave,
     PicWall,

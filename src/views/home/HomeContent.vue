@@ -31,6 +31,14 @@ export default class Content extends Vue {
   private canvasNoteList = [
     {
       id: 1,
+      title: 'canvas基础动画',
+      subTitle: 'canvas',
+      url: 'javascript:;',
+      demo: 'AnimationBasic',
+      code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/AnimationBasic.vue'
+    },
+    {
+      id: 2,
       title: '拖尾效果',
       subTitle: 'canvas',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1MFU-y0p2AoU2jEdsA18QJ6M',
@@ -38,7 +46,7 @@ export default class Content extends Vue {
       code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/TrailingEffect.vue'
     },
     {
-      id: 2,
+      id: 3,
       title: '线圈波动',
       subTitle: 'canvas',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1dlk4q2gQ4Pv274fSi33e2qo',
@@ -46,7 +54,7 @@ export default class Content extends Vue {
       code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/CoilWave.vue'
     },
     {
-      id: 3,
+      id: 4,
       title: '模拟风吹（未完成）',
       subTitle: '主要记录风吹的原理',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd1dlk4q2gQ4Pv274fSi33e2qo',
