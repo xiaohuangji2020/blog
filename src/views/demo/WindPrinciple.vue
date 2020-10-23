@@ -275,7 +275,6 @@ export default class WindPrinciple extends Vue {
       if (bubble.x >= W) bubble.x = W;
 
       const diffVy = bvy - bubble.vy;
-      console.log(bvy, bubble.vy);
       const directionY = diffVy > 0 ? 1 : -1;
       const Fy = directionY * Math.pow(diffVy, 2);
       const ay = Fy / bubble.m;
