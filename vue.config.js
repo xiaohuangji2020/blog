@@ -1,4 +1,4 @@
-const htmlWebpackPlugin = require('html-webpack-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   pluginOptions: {
@@ -8,6 +8,9 @@ module.exports = {
     }
   },
   configureWebpack: {
+    externals: {
+      hljs: 'hljs'
+    },
     plugins: [
       new htmlWebpackPlugin({
         title: '万物尽风流',

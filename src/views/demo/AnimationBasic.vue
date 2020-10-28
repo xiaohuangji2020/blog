@@ -5,17 +5,14 @@
       <h4 class="title">一、点做正圆运动</h4>
       <div class="content">
         <div class="text">
-          <ul>
-            <li>点绕圆心 做正弦运动</li>
-            <li>主要工作是算出点在当前时刻的坐标</li>
-          </ul>
+          <coder>{{ test1 }}</coder>
         </div>
         <div class="canvas-box">
           <div class="op">
             <a class="starter" @click="run(1)">start</a>
             <a class="stoper" @click="run(1, true)">stop</a>
           </div>
-          <canvas id="canvas-1" width="400" height="300"></canvas>
+          <canvas id="canvas-1" class="canvas" width="400" height="300"></canvas>
         </div>
       </div>
     </section>
@@ -35,6 +32,27 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class WindPrinciple extends Vue {
   private drawer = 0;
+  private test1 =
+    '\
+  // 点绕圆心 做正弦运动\n\
+  // 主要工作是算出点在当前时刻的坐标\n\
+  private drawCircle(ctx: CanvasRenderingContext2D, ball: Ball) {\n\
+    ctx.clearRect(0, 0, 400, 300);\n\
+    ctx.beginPath();\n\
+    ctx.arc(ball.x, ball.y, ball.R, 0, 2 * Math.PI); // 轨道\n\
+    ctx.stroke();\n\
+    ctx.beginPath();\n\
+    ctx.arc(ball.x + ball.R * Math.cos(ball.deg), ball.y + ball.R * Math.sin(ball.deg), ball.r, 0, 2 * Math.PI);\n\
+    ctx.fill();\n\
+    ball.deg += ball.v;\n\
+    if (ball.deg > 8) ball.deg -= 8; // 防止太大了\n\
+    this.drawer = requestAnimationFrame(() => {\n\
+      this.drawCircle(ctx, ball);\n\
+    });\n\
+  }';
+  private mounted() {
+    console.log(this);
+  }
   private beforeDestroy() {
     cancelAnimationFrame(this.drawer);
   }
@@ -85,7 +103,7 @@ export default class WindPrinciple extends Vue {
 
 <style lang="less" scoped>
 .main {
-  width: 950px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 0 15px;
   line-height: 34px;
@@ -94,13 +112,19 @@ export default class WindPrinciple extends Vue {
   border: 1px solid #ccc;
   .content {
     display: flex;
+    flex-flow: row wrap;
   }
   .text {
     flex: 1;
+    overflow: auto;
   }
   .canvas-box {
     flex: 1;
     position: relative;
+    overflow: auto;
+    .canvas {
+      margin: 0 auto;
+    }
   }
   .op {
     position: absolute;
@@ -111,6 +135,13 @@ export default class WindPrinciple extends Vue {
   .stoper {
     padding: 5px 10px;
     cursor: pointer;
+  }
+}
+@media (max-width: 700px) {
+  .sec {
+    .content {
+      display: block;
+    }
   }
 }
 </style>

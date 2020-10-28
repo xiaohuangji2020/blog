@@ -4,3 +4,4 @@ public/**
 scripts/**
 dist/**
 lib/**
+node_modules/**
