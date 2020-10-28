@@ -4,9 +4,6 @@ import './registerServiceWorker';
 import './lib/clickparticle';
 import router from './router';
 import store from './store';
-import coder from './plugins/coder';
-
-Vue.use(coder);
 
 Vue.config.productionTip = false;
 

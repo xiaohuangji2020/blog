@@ -29,7 +29,12 @@ interface Ball {
   v: number; // 角度递增值，决定速度
 }
 import { Component, Vue } from 'vue-property-decorator';
-@Component
+import Coder from '@/components/basic/Coder.vue';
+@Component({
+  components: {
+    Coder
+  }
+})
 export default class WindPrinciple extends Vue {
   private drawer = 0;
   private test1 =
@@ -50,9 +55,6 @@ export default class WindPrinciple extends Vue {
       this.drawCircle(ctx, ball);\n\
     });\n\
   }';
-  private mounted() {
-    console.log(this);
-  }
   private beforeDestroy() {
     cancelAnimationFrame(this.drawer);
   }
