@@ -33,8 +33,7 @@ export default class Content extends Vue {
       id: 1,
       title: 'canvas基础动画',
       subTitle: 'canvas',
-      url: 'javascript:;',
-      demo: 'AnimationBasic',
+      url: '/demo/AnimationBasic',
       code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/AnimationBasic.vue'
     },
     {

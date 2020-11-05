@@ -1,6 +1,6 @@
 <template>
   <div class="appearanimation box">
-    <a :href="note.url" target="_blank" class="link">
+    <a :href="note.url" :target="target" class="link">
       <h5 class="title">{{ note.title }}</h5>
       <div class="sub-title">{{ note.subTitle }}</div>
     </a>
@@ -12,11 +12,26 @@
 </template>
 
 <script lang="ts">
+interface Note {
+  id: number;
+  title: string;
+  subTitle?: string;
+  url?: string;
+  demo?: string;
+  code?: string;
+}
+
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class NoteBox extends Vue {
-  @Prop({ type: Object }) private note!: object;
+  @Prop({ type: Object }) private note!: Note;
+  get target() {
+    if (!this.note.url || this.note.url === 'javascript:;') {
+      return '_self';
+    }
+    return '_blank';
+  }
 }
 </script>
 

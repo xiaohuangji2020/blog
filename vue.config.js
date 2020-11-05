@@ -13,7 +13,7 @@ module.exports = {
     },
     plugins: [
       new htmlWebpackPlugin({
-        title: '万物尽风流',
+        title: '时之长河 生生不息',
         template: 'public/index.html'
       })
     ]
