@@ -31,7 +31,7 @@ export default class PicWall extends Vue {
   private waitingTime = 10000 * 1000;
   private mounted() {
     for (let i = 1; i <= this.pageSize; i++) {
-      this.images.push('/img/picwall/pic-' + this.page + '.jpeg');
+      this.images.push('/img/picwall/pic-' + this.page + '.jpg');
     }
 
     this.timing = setTimeout(() => {
@@ -57,7 +57,7 @@ export default class PicWall extends Vue {
       this.page = 4;
     }
     for (let i = 1; i <= 50; i++) {
-      this.nextImages.push('/img/picwall/pic-' + this.page + '.jpeg');
+      this.nextImages.push('/img/picwall/pic-' + this.page + '.jpg');
     }
   }
 
