@@ -38,7 +38,7 @@ export default class Coder extends Vue {
   line-height: 26px;
   td,
   span {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Consolas, 'Courier New', Courier, monospace;
   }
 }
 .hljs-ln {
