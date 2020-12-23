@@ -3,5 +3,5 @@ config/**
 public/**
 scripts/**
 dist/**
-lib/**
+src/lib/**
 node_modules/**
