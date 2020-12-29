@@ -80,7 +80,8 @@ export default class Content extends Vue {
       id: 1,
       title: 'v-for为什么不能用index做key',
       subTitle: '附demo',
-      url: '/note/vuenote/vforkey'
+      url: '/note/vuenote/vforkey',
+      code: 'https://github.com/roco2015/blog/blob/master/src/views/note/vuenote/VForKey.vue'
     }
   ];
   private noteList = [
