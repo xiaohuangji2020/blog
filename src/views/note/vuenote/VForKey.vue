@@ -105,7 +105,7 @@ export default class VForKey extends Vue {
   background-color: antiquewhite;
 }
 .tably {
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
   border-top: 1px solid @gray;
   text-align: center;

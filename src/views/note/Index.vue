@@ -1,5 +1,5 @@
 <template>
-  <router-view class="wrap"></router-view>
+  <router-view class="wrapper"></router-view>
   <!-- <div class="technology-wrap">
     <transition-group enter-active-class="bounce-in" leave-active-class="bounce-in">
       <router-link
@@ -45,9 +45,10 @@ export default class ModalEdit extends Vue {
 </script>
 
 <style lang="less" scoped>
-.wrap {
+.wrapper {
   max-width: 1024px;
   margin: 30px auto;
+  padding: 10px;
 }
 // .technology-wrap {
 //   position: relative;
