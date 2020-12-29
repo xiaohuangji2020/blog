@@ -1,10 +1,5 @@
 const router = [
   {
-    path: '/note',
-    name: 'note',
-    component: () => import(/* webpackChunkName: 'notes' */ '@/views/note/Index.vue')
-  },
-  {
     path: '/cv',
     name: 'cv',
     component: () => import(/* webpackChunkName: 'cv' */ '@/views/cv/Index.vue')
@@ -28,6 +23,18 @@ const router = [
     path: '/demo/:name',
     name: 'demo',
     component: () => import(/* webpackChunkName: 'demo' */ '@/views/demo/Index.vue')
+  },
+  {
+    path: '/note',
+    name: 'note',
+    component: () => import(/* webpackChunkName: 'notes' */ '@/views/note/Index.vue'),
+    children: [
+      {
+        path: '/note/vuenote/vforkey',
+        name: 'vforkey',
+        component: () => import(/* webpackChunkName: 'vuenote' */ '@/views/note/vuenote/VForKey.vue')
+      }
+    ]
   }
 ];
 

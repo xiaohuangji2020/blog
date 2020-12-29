@@ -10,6 +10,10 @@
       <div class="inner">
         <note-box v-for="note of effectList" :key="note.id" :note="note"></note-box>
       </div>
+      <h3 class="title">vue笔记</h3>
+      <div class="inner">
+        <note-box v-for="note of vueList" :key="note.id" :note="note"></note-box>
+      </div>
       <h3 class="title">其他笔记</h3>
       <div class="inner">
         <note-box v-for="note of noteList" :key="note.id" :note="note"></note-box>
@@ -69,6 +73,14 @@ export default class Content extends Vue {
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2ODRC01FDQrn2RyEmE1gppMW',
       demo: 'PicWall',
       code: 'https://github.com/roco2015/blog/blob/master/src/views/demo/PicWall.vue'
+    }
+  ];
+  private vueList = [
+    {
+      id: 1,
+      title: 'v-for为什么不能用index做key',
+      subTitle: '附demo',
+      url: '/note/vuenote/vforkey'
     }
   ];
   private noteList = [

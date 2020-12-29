@@ -1,10 +1,11 @@
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',
-      patterns: ['./src/assets/css/main.less']
+      patterns: [path.resolve(__dirname, 'src/assets/css/variable.less')]
     }
   },
   configureWebpack: {
