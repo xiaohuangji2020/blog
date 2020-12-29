@@ -102,7 +102,6 @@ export default class CoilWave extends Vue {
     this.drawBalls(ctx);
     this.drawer = requestAnimationFrame(() => {
       this.draw(ctx);
-      console.log('draw');
     });
   }
   private clear(ctx: CanvasRenderingContext2D) {
