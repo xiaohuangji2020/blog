@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <h3 class="title">为什么不能用index来做v-for的key</h3>
+    <note-title title="为什么不能用index来做v-for的key" date="2020-12-29 18:00:00" author="圆企鹅"></note-title>
     <p>首先定义一个数组</p>
     <p class="code">
       const arr = [{ id: 'x1', name: '小火龙' }, { id: 'x2', name: '杰尼龟' }, { id: 'x3', name: '妙蛙种子' }, { id:
@@ -43,7 +43,7 @@
         <span>{{ index }}</span>
         <span>{{ item.id }}</span>
         <span>{{ item.name }}</span>
-        <span><button class="r-btn" @click="arr.splice(index, 1)">删了它</button></span>
+        <span><el-button size="mini" @click="arr.splice(index, 1)">删了它</el-button></span>
       </div>
     </div>
     <p class="text-center mg-t-s">e.g. 2 key是index</p>
@@ -58,7 +58,7 @@
         <span>{{ index }}</span>
         <span>{{ item.id }}</span>
         <span>{{ item.name }}</span>
-        <span><button class="r-btn" @click="arr2.splice(index, 1)">删了它</button></span>
+        <span><el-button size="mini" @click="arr2.splice(index, 1)">删了它</el-button></span>
       </div>
     </div>
     <p class="mg-t-xxl">例1中，绿色的还是妙蛙种子。例2中，皮卡丘变成了绿色，妙蛙种子变成了黑色</p>
@@ -71,7 +71,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-@Component
+import NoteTitle from '@/views/note/components/NoteTitle.vue';
+
+@Component({
+  components: {
+    NoteTitle
+  }
+})
 export default class VForKey extends Vue {
   private arr = [
     { id: 'x1', name: '小火龙' },
@@ -96,9 +102,6 @@ export default class VForKey extends Vue {
 </script>
 
 <style lang="less" scoped>
-.title {
-  margin-bottom: 20px;
-}
 .code {
   padding: 0 10px;
   line-height: 32px;

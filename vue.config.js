@@ -14,7 +14,7 @@ module.exports = {
     },
     plugins: [
       new htmlWebpackPlugin({
-        title: '时之长河 生生不息',
+        title: '剑指的方向 就是天才的故乡',
         template: 'public/index.html'
       })
     ]

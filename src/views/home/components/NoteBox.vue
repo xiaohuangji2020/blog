@@ -41,6 +41,7 @@ export default class NoteBox extends Vue {
   flex-flow: column;
   position: relative;
   margin: 15px;
+  background: white;
   overflow: hidden;
   box-shadow: 0 9px 25px -22px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
