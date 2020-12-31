@@ -133,7 +133,6 @@ export default class Content extends Vue {
   background-size: contain;
   border-radius: 20px;
   box-shadow: 0 12px 50px -30px rgba(0, 0, 0, 0.6);
-  opacity: 0.1;
   &::before,
   &::after {
     content: '';

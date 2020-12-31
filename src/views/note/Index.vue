@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sticky-head></sticky-head>
+    <note-head></note-head>
     <router-view class="wrapper"></router-view>
     <my-footer></my-footer>
   </div>
@@ -8,11 +8,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import StickyHead from '@/views/common/StickyHead.vue';
+import NoteHead from '@/views/note/components/NoteHead.vue';
 import MyFooter from '@/views/common/Footer.vue';
 @Component({
   components: {
-    StickyHead,
+    NoteHead,
     MyFooter
   }
 })
