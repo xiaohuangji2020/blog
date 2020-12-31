@@ -10,10 +10,14 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class NoteHead extends Vue {
   private transformed = false;
   private mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    if (window.innerWidth <= 1224) {
+      window.addEventListener('scroll', this.handleScroll);
+    }
   }
   private beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
+    if (window.innerWidth <= 1224) {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
   }
   private handleScroll(event: Event) {
     const targetEl = event?.target;
