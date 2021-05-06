@@ -33,6 +33,11 @@ const router = [
         path: '/note/vuenote/vforkey',
         name: 'vforkey',
         component: () => import(/* webpackChunkName: 'vuenote' */ '@/views/note/vuenote/VForKey.vue')
+      },
+      {
+        path: '/note/content/codingbetter',
+        name: 'codingbetter',
+        component: () => import(/* webpackChunkName: 'codingbetter' */ '@/views/note/content/CodingBetter.vue')
       }
     ]
   }

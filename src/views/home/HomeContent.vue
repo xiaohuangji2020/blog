@@ -114,6 +114,12 @@ export default class Content extends Vue {
       title: '前端面试题',
       subTitle: '2020整理',
       url: 'https://8c70426d.wiz03.com/wapp/pages/view/share/s/2cs49J0WR4nJ2Drsge2YCvTd2ko3um2xWAuO2Qh7EX3rp3NW'
+    },
+    {
+      id: 5,
+      title: '代码优化',
+      subTitle: '令人头疼的代码中的常见问题',
+      url: '/note/content/codingbetter'
     }
   ];
 }
