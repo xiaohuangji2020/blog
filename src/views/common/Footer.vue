@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="copyright">
       <router-link :to="{ name: 'cv' }">Copyright &copy; 圆企鹅</router-link>
-      <a target="_blank" href="https://www.beian.miit.gov.cn/">辽ICP备2020012261号-1</a>
+      <a target="_blank" href="https://beian.miit.gov.cn/">辽ICP备2020012261号-1</a>
       <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21011402000290">
         <img src="/img/icons/beian.png" class="icon" />
         <p>辽公网安备 21011402000290号</p>
